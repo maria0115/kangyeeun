@@ -35,24 +35,34 @@ public class Ex07_성적2 {
 		}
 		
 		//계산
-		int []sum=new int[score.length];
-		double []avg=new double[score.length];
-		int []sum1=new int[score.length];
-		double []avg1=new double[score.length];
+		String gua[] = new String[]{"국어","영어","수학"};
+		int []sum=new int[score.length];	//학생별 2명
+		double []avg=new double[score.length];		
 		for(int i=0; i<score.length;i++)
 		{
 			for(int j=0; j<score[i].length;j++)
 			{
-				sum[i]+=score[i][j];
-				sum1[i]+=score[j][i];
+				sum[i]+=score[i][j];	//학생별 2명
+				
 			}
-			avg[i]=(double)sum[i]/score.length;
-			avg1[i]=(double)sum1[i]/score.length;
+			avg[i]=(double)sum[i]/3;
+			System.out.println(i+1+"번째 학생 총점"+sum[i]+"평균은"+avg[i]);
+		}
+		int []sum1=new int[3];	//과목별 3개
+		double []avg1=new double[3];
+		for(int i=0; i<3;i++)	//3열
+		{
+			for(int j=0; j<n;j++)	//2행
+			{				
+				sum1[i]+=score[j][i];	//과목별 3개
+				avg1[i]=(double)sum1[i]/n;	//과목별
+			}			
+			System.out.println(gua[i]+"과목 총점"+sum1[i]+"평균은"+avg1[i]);
 		}
 		
 		
 		//출력
-		String gua[] = new String[]{"국어","영어","수학"};
+		//String gua[] = new String[]{"국어","영어","수학"};
 		
 		for(int i=0; i<score.length;i++)
 		{
@@ -61,8 +71,8 @@ public class Ex07_성적2 {
 				//System.out.println(i+1+"번째 학생의 점수는 "+score[i][j]);
 				
 			}
-			System.out.println(i+1+"번째 학생 총점"+sum[i]+"평균은"+avg[i]);
-			System.out.println(gua[i]+"과목 총점"+sum1[i]+"평균은"+avg1[i]);
+			//System.out.println(i+1+"번째 학생 총점"+sum[i]+"평균은"+avg[i]);
+			//System.out.println(gua[i]+"과목 총점"+sum1[i]+"평균은"+avg1[i]);
 		}
 	}
 
